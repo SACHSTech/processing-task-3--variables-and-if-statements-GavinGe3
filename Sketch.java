@@ -22,17 +22,25 @@ public class Sketch extends PApplet {
   /**
    * Called repeatedly, anything drawn to the screen goes here
    */
+  int second = second();
+  int minute = minute();
+  int hour = hour();
   float pandaX = random(160, 440);
   float pandaY = random(150, 450);
   public void draw() {
+  
+    if (pandaX > 300 && pandaY > 300){
+      background(0, 0, 0);
 
+    }
+    // Set initial stroke weight  
+    strokeWeight(4);
+    
     fill(0, 0, 0);
     arc(pandaX - 125, pandaY - 120, 200, 200, radians(135), radians(320), OPEN);
     arc(pandaX + 125, pandaY - 120, 200, 200, radians(220), radians(405), OPEN);
 
-
-    
-
+    // Draw Panda face
     fill(255, 255, 255);
     ellipse(pandaX, pandaY, 450, 375);
 
@@ -42,7 +50,6 @@ public class Sketch extends PApplet {
     arc(pandaX -125, pandaY - 40, 150, 150, radians(-32), radians(122), OPEN);
     arc(pandaX + 100, pandaY - 15, 150, 150, radians(239), radians(391), OPEN);
     arc(pandaX + 125, pandaY - 40, 150, 150, radians(58), radians(212), OPEN);  
-
 
     // Draw Panda Eyes (WhitePupils)
     fill(255, 255, 255);
@@ -60,12 +67,10 @@ public class Sketch extends PApplet {
     arc(pandaX - 25, pandaY + 105, 50, 40, 0, radians(135));
     arc(pandaX + 25, pandaY + 105, 50, 40, radians(45), radians(180));
 
-
+    text(hour, 100, 100);
+    text(minute, 120, 100);
+    text(second, 140, 100);
     
-
-
-
-	  
 	
   }
   
