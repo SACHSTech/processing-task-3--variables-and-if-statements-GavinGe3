@@ -30,8 +30,16 @@ public class Sketch extends PApplet {
   public void draw() {
   
     if (pandaX > 300 && pandaY > 300){
-      background(0, 0, 0);
-
+      background(100, 100, 100);
+    }
+    if (pandaX < 300 && pandaY > 300){
+      background(150, 150, 150);
+    }
+    if (pandaX > 300 && pandaY < 300){
+      background(200, 200, 200);
+    }
+    if (pandaX < 300 && pandaY < 300){
+      background(250, 250, 250);
     }
     // Set initial stroke weight  
     strokeWeight(4);
