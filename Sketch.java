@@ -75,9 +75,10 @@ public class Sketch extends PApplet {
     arc(pandaX - 25, pandaY + 105, 50, 40, 0, radians(135));
     arc(pandaX + 25, pandaY + 105, 50, 40, radians(45), radians(180));
 
-    text(hour, 100, 100);
-    text(minute, 120, 100);
-    text(second, 140, 100);
+    // Print time
+    text(hour, pandaX - 20, pandaY - 100);
+    text(minute, pandaX, pandaY - 100);
+    text(second, pandaX + 20, pandaY - 100);
     
 	
   }
