@@ -2,7 +2,7 @@ import processing.core.PApplet;
 /**
  * @Author: Ge. G
  * Draws a panda at a random location, and depending on this location changes the color of the pands ears and nose. Additionally, the time of 
- * day is displayed, and changes the background color. 
+ * day is displayed and background changes depending on time. 
  */
 public class Sketch extends PApplet {
 	
