@@ -104,7 +104,7 @@ public class Sketch extends PApplet {
     arc(pandaX - 25, pandaY + 105, 50, 40, 0, radians(135));
     arc(pandaX + 25, pandaY + 105, 50, 40, radians(45), radians(180));
 
-    // Draw panda nose 
+    // Draw panda nose and change color based on location
     if (pandaX < 250 || pandaX > 350){
       fill(26,159,228);
     }
@@ -127,8 +127,13 @@ public class Sketch extends PApplet {
     else {
       text(minute, pandaX , pandaY - 100);
     }
+    if (second < 10){
+      text("0" + second, pandaX + 35, pandaY - 100);
+    }
+    else{
+      text(second, pandaX + 35, pandaY - 100);
+    }
     text(":", pandaX - 6, pandaY - 100);
     text(":", pandaX + 27, pandaY - 100);
-    text(second, pandaX + 35, pandaY - 100);
   }
 }
