@@ -6,9 +6,7 @@ import processing.core.PApplet;
  */
 public class Sketch extends PApplet {
 	
- 
   public void settings() {
-	
     size(600, 600);
   }
    
@@ -25,10 +23,13 @@ public class Sketch extends PApplet {
   float pandaX = random(220, 380);
   float pandaY = random(215, 385);
 
-  // Declare time variable for background
+  // Declare time boolean for background
   boolean nightTime = minute > 30;
   
   public void draw() {
+
+    // Set initial stroke weight  
+    strokeWeight(4);
     
     // If its half past the hour set background to dark, if not set background to light
     if (nightTime) {
@@ -37,9 +38,6 @@ public class Sketch extends PApplet {
     if (!nightTime) {
       background(210, 255, 173);
     }
-    
-    // Set initial stroke weight  
-    strokeWeight(4);
 
     // Draw background bamboo
     fill(8, 133, 68);
