@@ -1,41 +1,40 @@
 import processing.core.PApplet;
-
+/**
+ * @Author: Ge. G
+ * Draws a panda at a random location, and depending on this location changes the color of the pands ears and nose. Additionally, the time of 
+ * day is displayed, and changes the background color. 
+ */
 public class Sketch extends PApplet {
 	
-	
-  /**
-   * Called once at the beginning of execution, put your size all in this method
-   */
+ 
   public void settings() {
-	// put your size call here
+	
     size(600, 600);
   }
-
-  /** 
-   * Called once at the beginning of execution.  Add initial set up
-   * values here i.e background, stroke, fill etc.
-   */
+   
   public void setup() {
     background(210, 255, 173);
   }
 
-  /**
-   * Called repeatedly, anything drawn to the screen goes here
-   */
+  // Declare time Variables 
   int second = second();
   int minute = minute();
   int hour = hour();
-  float pandaX = random(200, 400);
-  float pandaY = random(200, 400);
-  boolean nightTime = minute > 25;
 
+  // Declare random location Variables
+  float pandaX = random(220, 380);
+  float pandaY = random(215, 385);
+
+  // Declare time variable for background
+  boolean nightTime = minute > 30;
+  
   public void draw() {
     
-    // If night time set background to dark, if not nighttime background 
-    if (nightTime){
+    // If its half past the hour set background to dark, if not set background to light
+    if (nightTime) {
       background(0, 0, 0);
     }
-    if (!nightTime){
+    if (!nightTime) {
       background(210, 255, 173);
     }
     
@@ -66,17 +65,17 @@ public class Sketch extends PApplet {
     line(280, 550, 325, 557);
     line(400, 510, 445, 530);
     
-    // Draw panda Ears
-    if (pandaX > 300 && pandaY > 300){
+    // Draw panda Ears and change color based on location
+    if (pandaX >= 300 && pandaY >= 300){
       fill(140, 0, 0);
     }
-    if (pandaX < 300 && pandaY > 300){
+    if (pandaX <= 300 && pandaY >= 300){
       fill(0, 80, 40);
     }
-    if (pandaX > 300 && pandaY < 300){
+    if (pandaX >= 300 && pandaY <= 300){
       fill(227, 203, 0);
     }
-    if (pandaX < 300 && pandaY < 300){
+    if (pandaX <= 300 && pandaY <= 300){
       fill(242, 90, 29);
     }
     arc(pandaX - 125, pandaY - 120, 200, 200, radians(135), radians(320), OPEN);
@@ -109,17 +108,27 @@ public class Sketch extends PApplet {
     if (pandaX < 250 || pandaX > 350){
       fill(26,159,228);
     }
-    if (pandaX > 250 && pandaX < 350){
+    if (pandaX > 251 && pandaX < 351){
       fill(247, 0, 0);
     }
     ellipse(pandaX, pandaY + 75, 75, 40);
 
     // Print time
     textSize(25);
-    text(hour, pandaX - 20, pandaY - 100);
-    text(":", pandaX - 7, pandaY - 100);
-    text(minute, pandaX, pandaY - 100);
-    text(":", pandaX + 25, pandaY - 100);
+    if (hour > 9) {
+      text(hour, pandaX - 34, pandaY - 100);
+    }
+    else {
+      text("0" + hour, pandaX - 34, pandaY - 100);
+    }
+    if (minute < 10){
+      text("0" + minute, pandaX, pandaY - 100);
+    }
+    else {
+      text(minute, pandaX , pandaY - 100);
+    }
+    text(":", pandaX - 6, pandaY - 100);
+    text(":", pandaX + 27, pandaY - 100);
     text(second, pandaX + 35, pandaY - 100);
   }
 }
